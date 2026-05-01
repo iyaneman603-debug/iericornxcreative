@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IERICORN CREATIVE | Visual Storytelling, Powered by Motion Intelligence</title>
+    <meta name="description" content="Tunageuza mawazo yako kuwa uhalisia kupitia video za kisasa na Graphics Animation zenye mvuto wa hali ya juu.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <h2 class="loader-text">IERICORN CREATIVE</h2>
+            <p class="loader-tagline">Loading Motion Intelligence...</p>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-icon"><i class="fas fa-play-circle"></i></span>
+                    <span class="logo-text">IERICORN<span class="logo-accent">CREATIVE</span></span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#creative-studio" class="nav-link" data-section="creative-studio">Creative Studio</a>
+                <a href="#motion-library" class="nav-link" data-section="motion-library">Motion Library</a>
+                <a href="#collaboration" class="nav-link" data-section="collaboration">Collaboration</a>
+                <a href="#" class="nav-link" onclick="openDirectChat()">Direct Chat</a>
+                <a href="#pricing" class="nav-link" data-section="pricing">Pricing</a>
+            </div>
+            
+            <div class="nav-auth" id="navAuth">
+                <button class="btn-login" onclick="openLoginModal()">Login</button>
+                <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+            </div>
+            
+            <div class="nav-user" id="navUser" style="display: none;">
+                <div class="user-avatar" onclick="toggleUserMenu()">
+                    <img src="" alt="User" id="userAvatar">
+                    <span id="userName"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" onclick="openProfile()"><i class="fas fa-user"></i> Profile</a>
+                    <a href="admin.html" id="adminLink" style="display: none;"><i class="fas fa-cog"></i> Admin Dashboard</a>
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Visual Storytelling Platform
+            </div>
+            
+            <h1 class="hero-title glitch-text" data-text="IERICORN CREATIVE">
+                IERICORN <span class="text-gradient">CREATIVE</span>
+            </h1>
+            
+            <p class="hero-slogan">Visual Storytelling, Powered by Motion Intelligence</p>
+            
+            <p class="hero-description">
+                Tunageuza mawazo yako kuwa uhalisia kupitia video za kisasa na Graphics Animation zenye mvuto wa hali ya juu.
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary glow-btn" onclick="openProjectForm()">
+                    <i class="fas fa-rocket"></i>
+                    Anza Mradi Wako
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('portfolio')">
+                    <i class="fas fa-eye"></i>
+                    Angalia Kazi Zetu
+                </button>
+            </div>
+            
+            <!-- Live Counters -->
+            <div class="hero-counters">
+                <div class="counter-item">
+                    <div class="counter-value" data-target="1247">0</div>
+                    <div class="counter-label">Projects Delivered</div>
+                    <div class="counter-bar"><div class="counter-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" data-target="98">0</div>
+                    <div class="counter-label">% Client Satisfaction</div>
+                    <div class="counter-bar"><div class="counter-progress" style="width: 98%"></div></div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" data-target="2847560">0</div>
+                    <div class="counter-label">Animation Frames Rendered</div>
+                    <div class="counter-bar"><div class="counter-progress" style="width: 92%"></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Services</span>
+                <h2 class="section-title">What We <span class="text-gradient">Create</span></h2>
+                <p class="section-subtitle">Professional video and animation services for your brand</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" onclick="openServiceDetail('video-editing')">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Video Editing</h3>
+                    <p>4K cinematic video editing with professional color grading and effects</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 4K Resolution</span>
+                        <span><i class="fas fa-check"></i> Color Grading</span>
+                        <span><i class="fas fa-check"></i> Sound Design</span>
+                    </div>
+                    <div class="service-cta">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="openServiceDetail('animation')">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>2D/3D Animation</h3>
+                    <p>Stunning animations that bring your ideas to life with motion</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Character Animation</span>
+                        <span><i class="fas fa-check"></i> Product Visualization</span>
+                        <span><i class="fas fa-check"></i> Explainer Videos</span>
+                    </div>
+                    <div class="service-cta">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="openServiceDetail('social-media')">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Social Media Content</h3>
+                    <p>Engaging content optimized for all social platforms</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Instagram Reels</span>
+                        <span><i class="fas fa-check"></i> TikTok Videos</span>
+                        <span><i class="fas fa-check"></i> YouTube Shorts</span>
+                    </div>
+                    <div class="service-cta">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="openServiceDetail('motion-graphics')">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Motion Graphics</h3>
+                    <p>Dynamic visual effects and animated graphics for any project</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Logo Animation</span>
+                        <span><i class="fas fa-check"></i> Infographics</span>
+                        <span><i class="fas fa-check"></i> Title Sequences</span>
+                    </div>
+                    <div class="service-cta">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Studio Section -->
+    <section id="creative-studio" class="section studio-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Creative Studio</span>
+                <h2 class="section-title">Our <span class="text-gradient">Studio</span></h2>
+                <p class="section-subtitle">State-of-the-art creative production capabilities</p>
+            </div>
+            
+            <div class="studio-grid">
+                <div class="studio-card" onclick="openStudioModule('video-production')">
+                    <div class="studio-visual">
+                        <div class="studio-icon"><i class="fas fa-video"></i></div>
+                        <div class="studio-wave"></div>
+                    </div>
+                    <div class="studio-content">
+                        <h3>Video Production</h3>
+                        <p>Full-service video production from concept to final delivery</p>
+                        <ul class="studio-features">
+                            <li>Scripting & Storyboarding</li>
+                            <li>Professional Filming</li>
+                            <li>Post-Production</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="studio-card" onclick="openStudioModule('vfx')">
+                    <div class="studio-visual">
+                        <div class="studio-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <div class="studio-wave"></div>
+                    </div>
+                    <div class="studio-content">
+                        <h3>Visual Effects</h3>
+                        <p>Cinematic VFX that transform ordinary footage into extraordinary</p>
+                        <ul class="studio-features">
+                            <li>Compositing</li>
+                            <li>CGI Integration</li>
+                            <li>Green Screen</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="studio-card" onclick="openStudioModule('color-grading')">
+                    <div class="studio-visual">
+                        <div class="studio-icon"><i class="fas fa-palette"></i></div>
+                        <div class="studio-wave"></div>
+                    </div>
+                    <div class="studio-content">
+                        <h3>Color Grading</h3>
+                        <p>Professional color correction and cinematic color grading</p>
+                        <ul class="studio-features">
+                            <li>Color Correction</li>
+                            <li>LUT Creation</li>
+                            <li>Cinematic Looks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motion Intelligence Dashboard -->
+    <section id="motion-library" class="section dashboard-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Motion Intelligence</span>
+                <h2 class="section-title">Production <span class="text-gradient">Dashboard</span></h2>
+                <p class="section-subtitle">Real-time project tracking and analytics</p>
+            </div>
+            
+            <div class="dashboard-container">
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h4><i class="fas fa-chart-line"></i> Render Progress</h4>
+                        <span class="live-badge"><span class="pulse-dot"></span> Live</span>
+                    </div>
+                    <div class="progress-items">
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>Video Editing Pipeline</span>
+                                <span class="progress-value">87%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="87"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>Animation Rendering</span>
+                                <span class="progress-value">64%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="64"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>Color Grading</span>
+                                <span class="progress-value">92%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="92"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span>Final Export</span>
+                                <span class="progress-value">45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="45"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h4><i class="fas fa-tasks"></i> Timeline Steps</h4>
+                    </div>
+                    <div class="timeline-steps">
+                        <div class="timeline-step completed">
+                            <div class="step-icon"><i class="fas fa-check"></i></div>
+                            <div class="step-content">
+                                <h5>Project Briefing</h5>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step completed">
+                            <div class="step-icon"><i class="fas fa-check"></i></div>
+                            <div class="step-content">
+                                <h5>Storyboard Approval</h5>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step active">
+                            <div class="step-icon"><i class="fas fa-spinner fa-spin"></i></div>
+                            <div class="step-content">
+                                <h5>Production Phase</h5>
+                                <span>In Progress</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-icon"><i class="fas fa-circle"></i></div>
+                            <div class="step-content">
+                                <h5>Review & Revision</h5>
+                                <span>Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-icon"><i class="fas fa-circle"></i></div>
+                            <div class="step-content">
+                                <h5>Final Delivery</h5>
+                                <span>Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-panel stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-value" data-count="24">0</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-film"></i></div>
+                        <div class="stat-value" data-count="156">0</div>
+                        <div class="stat-label">Frames Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-value" data-count="8">0</div>
+                        <div class="stat-label">Avg. Turnaround (hrs)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Work</span>
+                <h2 class="section-title">Creative <span class="text-gradient">Portfolio</span></h2>
+                <p class="section-subtitle">Explore our latest projects and creations</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="video">Video</button>
+                <button class="filter-btn" data-filter="animation">Animation</button>
+                <button class="filter-btn" data-filter="graphics">Graphics</button>
+                <button class="filter-btn" data-filter="motion">Motion</button>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be loaded dynamically -->
+            </div>
+            
+            <div class="portfolio-actions">
+                <button class="btn btn-secondary" onclick="loadMorePortfolio()">
+                    <i class="fas fa-plus"></i> Load More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graphics Section -->
+    <section id="graphics" class="section graphics-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Graphics Gallery</span>
+                <h2 class="section-title">Design <span class="text-gradient">Showcase</span></h2>
+                <p class="section-subtitle">Browse our stunning graphic designs</p>
+            </div>
+            
+            <div class="graphics-upload-area" id="graphicsUploadArea" style="display: none;">
+                <button class="btn btn-primary" onclick="openGraphicsUploadModal()">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload New Graphics
+                </button>
+            </div>
+            
+            <div class="graphics-grid" id="graphicsGrid">
+                <!-- Graphics posts will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Hub -->
+    <section id="collaboration" class="section collaboration-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Collaboration</span>
+                <h2 class="section-title">Work <span class="text-gradient">Together</span></h2>
+                <p class="section-subtitle">Upload your files and collaborate with our team</p>
+            </div>
+            
+            <div class="collab-container">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-content">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Drag & Drop Files Here</h3>
+                        <p>or click to browse</p>
+                        <div class="upload-limits">
+                            <span><i class="fas fa-video"></i> Video: Max 200MB</span>
+                            <span><i class="fas fa-image"></i> Images: JPG, PNG, WEBP</span>
+                        </div>
+                        <input type="file" id="fileInput" multiple accept="video/*,image/*" onchange="handleFileSelect(event)">
+                    </div>
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-ring">
+                            <svg>
+                                <circle class="progress-ring-bg" cx="50" cy="50" r="45"/>
+                                <circle class="progress-ring-fill" cx="50" cy="50" r="45"/>
+                            </svg>
+                            <span class="progress-percent">0%</span>
+                        </div>
+                        <p>Uploading...</p>
+                    </div>
+                </div>
+                
+                <div class="uploaded-files" id="uploadedFiles">
+                    <h4><i class="fas fa-folder-open"></i> Uploaded Files</h4>
+                    <div class="files-list" id="filesList">
+                        <p class="no-files">No files uploaded yet</p>
+                    </div>
+                </div>
+                
+                <div class="feedback-section">
+                    <h4><i class="fas fa-comments"></i> Project Feedback</h4>
+                    <textarea id="feedbackBox" placeholder="Share your thoughts, suggestions, or feedback about the project..."></textarea>
+                    <button class="btn btn-primary" onclick="submitFeedback()">
+                        <i class="fas fa-paper-plane"></i> Send Feedback
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Pricing</span>
+                <h2 class="section-title">Choose Your <span class="text-gradient">Plan</span></h2>
+                <p class="section-subtitle">Flexible pricing for every need</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/project</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1 minute video</li>
+                        <li><i class="fas fa-check"></i> Watermark included</li>
+                        <li><i class="fas fa-check"></i> 1 revision</li>
+                        <li><i class="fas fa-check"></i> 720p quality</li>
+                        <li class="disabled"><i class="fas fa-times"></i> No priority support</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('free')">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">9.99</span>
+                            <span class="period">/project</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 4K resolution</li>
+                        <li><i class="fas fa-check"></i> No watermark</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Source files included</li>
+                    </ul>
+                    <button class="btn btn-primary glow-btn" onclick="selectPlan('pro')">Choose Pro</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="currency"></span>
+                            <span class="amount">Custom</span>
+                            <span class="period"></span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Custom pricing</li>
+                        <li><i class="fas fa-check"></i> 3D animation included</li>
+                        <li><i class="fas fa-check"></i> 24/7 support</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('enterprise')">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="section clients-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Clients</span>
+                <h2 class="section-title">Trusted <span class="text-gradient">Partners</span></h2>
+                <p class="section-subtitle">Brands we've worked with</p>
+            </div>
+            
+            <div class="clients-grid" id="clientsGrid">
+                <!-- Clients will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,50 C150,100 350,0 500,50 C650,100 800,0 1000,50 C1150,100 1300,0 1440,50 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+        
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-play-circle"></i></span>
+                        <span class="logo-text">IERICORN<span class="logo-accent">CREATIVE</span></span>
+                    </div>
+                    <p>Visual Storytelling, Powered by Motion Intelligence</p>
+                    <div class="footer-social">
+                        <a href="https://www.youtube.com/@x.mationmedia" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/255740330004" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:iericorn.inc@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="#" onclick="openServiceDetail('video-editing')">Video Editing</a>
+                    <a href="#" onclick="openServiceDetail('animation')">Animation</a>
+                    <a href="#" onclick="openServiceDetail('motion-graphics')">Motion Graphics</a>
+                    <a href="#" onclick="openServiceDetail('social-media')">Social Media</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> iericorn.inc@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +255740330004</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 IERICORN CREATIVE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Floating Widget -->
+    <div class="ai-assistant" id="aiAssistant">
+        <div class="ai-toggle" onclick="toggleAIChat()">
+            <img src="https://res.cloudinary.com/dluecf4wg/image/upload/v1770228777/INSTAGRAM_PROFESSIONAL_2_qaa7pb.jpg" alt="AI Assistant">
+            <span class="ai-pulse"></span>
+        </div>
+        
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <div class="ai-info">
+                    <img src="https://res.cloudinary.com/dluecf4wg/image/upload/v1770228777/INSTAGRAM_PROFESSIONAL_2_qaa7pb.jpg" alt="AI">
+                    <div>
+                        <h4>Creative Assistant</h4>
+                        <span class="status online">Online</span>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="ai-chat-messages" id="aiMessages">
+                <div class="ai-message bot">
+                    <img src="https://res.cloudinary.com/dluecf4wg/image/upload/v1770228777/INSTAGRAM_PROFESSIONAL_2_qaa7pb.jpg" alt="AI">
+                    <div class="message-content">
+                        <p>Hujambo! Mimi ni msaidizi wako wa ubunifu. Unahitaji video ya aina gani leo?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-quick-actions">
+                <button onclick="aiQuickAction('pricing')">💰 Pricing</button>
+                <button onclick="aiQuickAction('services')">🎬 Services</button>
+                <button onclick="aiQuickAction('payment')">💳 Payment</button>
+            </div>
+            
+            <div class="ai-chat-input">
+                <input type="text" id="aiInput" placeholder="Type your message..." onkeypress="handleAIInput(event)">
+                <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" onclick="closeModal('loginModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-overlay" onclick="closeModal('signupModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('signupModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Join Us</h2>
+                <p>Create your account</p>
+            </div>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signupName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="signupEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Form Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-overlay" onclick="closeModal('projectModal')"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeModal('projectModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Start Your Project</h2>
+                <p>Tell us about your creative vision</p>
+            </div>
+            <form id="projectForm" onsubmit="handleProjectSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Your Name</label>
+                        <input type="text" id="projectName" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="projectEmail" required placeholder="Enter your email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone</label>
+                        <input type="tel" id="projectPhone" placeholder="Enter your phone">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-list"></i> Service Type</label>
+                        <select id="projectService" required>
+                            <option value="">Select a service</option>
+                            <option value="video-editing">Video Editing</option>
+                            <option value="animation">2D/3D Animation</option>
+                            <option value="social-media">Social Media Content</option>
+                            <option value="motion-graphics">Motion Graphics</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-info-circle"></i> Project Description</label>
+                    <textarea id="projectDescription" required placeholder="Describe your project..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-dollar-sign"></i> Budget Range</label>
+                    <select id="projectBudget">
+                        <option value="free">Free Plan</option>
+                        <option value="pro">Pro ($9.99)</option>
+                        <option value="enterprise">Enterprise (Custom)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Submit Project</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-overlay" onclick="closeModal('paymentModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Payment Options</h2>
+                <p>Choose your preferred payment method</p>
+            </div>
+            <div class="payment-options">
+                <div class="payment-option" onclick="payWithMpesa()">
+                    <div class="payment-icon mpesa">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h4>M-Pesa</h4>
+                        <p>+255740330004</p>
+                    </div>
+                </div>
+                <div class="payment-option" onclick="payWithWhatsApp()">
+                    <div class="payment-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h4>WhatsApp</h4>
+                        <p>Chat to Pay</p>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-instructions">
+                <h4>Payment Instructions:</h4>
+                <ol>
+                    <li>Send payment to: <strong>+255740330004</strong></li>
+                    <li>Include your project name in the reference</li>
+                    <li>Send screenshot via WhatsApp for confirmation</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-overlay" onclick="closeModal('serviceModal')"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeModal('serviceModal')"><i class="fas fa-times"></i></button>
+            <div class="service-detail" id="serviceDetail">
+                <!-- Service details loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Item Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-overlay" onclick="closeModal('portfolioModal')"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeModal('portfolioModal')"><i class="fas fa-times"></i></button>
+            <div class="portfolio-detail" id="portfolioDetail">
+                <!-- Portfolio details loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Graphics Upload Modal -->
+    <div class="modal" id="graphicsUploadModal">
+        <div class="modal-overlay" onclick="closeModal('graphicsUploadModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('graphicsUploadModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Upload Graphics</h2>
+                <p>Share your creative work</p>
+            </div>
+            <form id="graphicsUploadForm" onsubmit="handleGraphicsUpload(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-image"></i> Image</label>
+                    <div class="image-upload-area" id="graphicsImageUpload">
+                        <input type="file" id="graphicsImage" accept="image/*" onchange="previewGraphicsImage(event)">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload image</p>
+                        </div>
+                        <img id="graphicsPreview" style="display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-heading"></i> Title</label>
+                    <input type="text" id="graphicsTitle" required placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-align-left"></i> Description</label>
+                    <textarea id="graphicsDescription" placeholder="Describe your work..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/ai-chat.js"></script>
+</body>
+</html>

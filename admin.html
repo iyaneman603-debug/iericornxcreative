@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | IERICORN CREATIVE</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-header">
+            <div class="admin-logo">
+                <span class="logo-icon"><i class="fas fa-play-circle"></i></span>
+                <span class="logo-text">IERICORN<span class="logo-accent">ADMIN</span></span>
+            </div>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#overview" class="nav-item active" data-section="overview" onclick="showSection('overview')">
+                <i class="fas fa-chart-pie"></i>
+                <span>Overview</span>
+            </a>
+            <a href="#graphics" class="nav-item" data-section="graphics" onclick="showSection('graphics')">
+                <i class="fas fa-image"></i>
+                <span>Graphics Manager</span>
+            </a>
+            <a href="#clients" class="nav-item" data-section="clients" onclick="showSection('clients')">
+                <i class="fas fa-handshake"></i>
+                <span>Clients Manager</span>
+            </a>
+            <a href="#users" class="nav-item" data-section="users" onclick="showSection('users')">
+                <i class="fas fa-users"></i>
+                <span>Users Manager</span>
+            </a>
+            <a href="#projects" class="nav-item" data-section="projects" onclick="showSection('projects')">
+                <i class="fas fa-folder-open"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#settings" class="nav-item" data-section="settings" onclick="showSection('settings')">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Back to Site</span>
+            </a>
+            <a href="#" class="nav-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-header">
+            <div class="header-left">
+                <button class="mobile-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="pageTitle">Overview</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-search">
+                    <input type="text" placeholder="Search..." id="globalSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <div class="header-user">
+                    <img src="https://res.cloudinary.com/dluecf4wg/image/upload/v1770228777/INSTAGRAM_PROFESSIONAL_2_qaa7pb.jpg" alt="Admin" id="adminAvatar">
+                    <span id="adminName">Admin</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Content Sections -->
+        <div class="admin-content">
+            <!-- Overview Section -->
+            <section class="admin-section active" id="overviewSection">
+                <div class="stats-grid">
+                    <div class="stat-card blue">
+                        <div class="stat-icon"><i class="fas fa-image"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalGraphics">0</h3>
+                            <p>Total Graphics</p>
+                        </div>
+                    </div>
+                    <div class="stat-card red">
+                        <div class="stat-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalClients">0</h3>
+                            <p>Active Clients</p>
+                        </div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Registered Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalProjects">0</h3>
+                            <p>Projects</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                        </div>
+                        <div class="activity-list" id="activityList">
+                            <p class="empty-state">No recent activity</p>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line"></i> Quick Stats</h3>
+                        </div>
+                        <div class="quick-stats">
+                            <div class="quick-stat">
+                                <span class="label">Total Views</span>
+                                <span class="value" id="totalViews">0</span>
+                            </div>
+                            <div class="quick-stat">
+                                <span class="label">Total Likes</span>
+                                <span class="value" id="totalLikes">0</span>
+                            </div>
+                            <div class="quick-stat">
+                                <span class="label">Pending Projects</span>
+                                <span class="value" id="pendingProjects">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Graphics Manager Section -->
+            <section class="admin-section" id="graphicsSection">
+                <div class="section-header">
+                    <h2>Graphics Manager</h2>
+                    <button class="btn btn-primary" onclick="openAddGraphicsModal()">
+                        <i class="fas fa-plus"></i> Add New
+                    </button>
+                </div>
+                
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Views</th>
+                                <th>Likes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="graphicsTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-state">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Clients Manager Section -->
+            <section class="admin-section" id="clientsSection">
+                <div class="section-header">
+                    <h2>Clients Manager</h2>
+                    <button class="btn btn-primary" onclick="openAddClientModal()">
+                        <i class="fas fa-plus"></i> Add Client
+                    </button>
+                </div>
+                
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Logo</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Users Manager Section -->
+            <section class="admin-section" id="usersSection">
+                <div class="section-header">
+                    <h2>Users Manager</h2>
+                    <button class="btn btn-primary" onclick="openAddUserModal()">
+                        <i class="fas fa-plus"></i> Add User
+                    </button>
+                </div>
+                
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-state">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Projects Section -->
+            <section class="admin-section" id="projectsSection">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                </div>
+                
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsTableBody">
+                            <tr>
+                                <td colspan="5" class="empty-state">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Settings Section -->
+            <section class="admin-section" id="settingsSection">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-globe"></i> Site Settings</h3>
+                        <form id="siteSettingsForm">
+                            <div class="form-group">
+                                <label>Site Name</label>
+                                <input type="text" value="IERICORN CREATIVE" id="siteName">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Email</label>
+                                <input type="email" value="iericorn.inc@gmail.com" id="contactEmail">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Phone</label>
+                                <input type="tel" value="+255740330004" id="contactPhone">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3><i class="fas fa-palette"></i> Theme Settings</h3>
+                        <div class="theme-options">
+                            <div class="theme-option active" data-theme="dark">
+                                <span class="theme-preview dark"></span>
+                                <span>Dark</span>
+                            </div>
+                            <div class="theme-option" data-theme="light">
+                                <span class="theme-preview light"></span>
+                                <span>Light</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <div class="settings-toggles">
+                            <div class="toggle-item">
+                                <span>Email Notifications</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <span>New Project Alerts</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <span>User Signup Alerts</span>
+                                <label class="toggle">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Add/Edit Graphics Modal -->
+    <div class="admin-modal" id="graphicsModal">
+        <div class="modal-overlay" onclick="closeAdminModal('graphicsModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="graphicsModalTitle">Add Graphics</h2>
+                <button onclick="closeAdminModal('graphicsModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="graphicsForm" onsubmit="saveGraphics(event)">
+                <input type="hidden" id="graphicsId">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="gfxTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="gfxDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" id="gfxImage" required>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="gfxStatus">
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAdminModal('graphicsModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add/Edit Client Modal -->
+    <div class="admin-modal" id="clientModal">
+        <div class="modal-overlay" onclick="closeAdminModal('clientModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="clientModalTitle">Add Client</h2>
+                <button onclick="closeAdminModal('clientModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="clientForm" onsubmit="saveClient(event)">
+                <input type="hidden" id="clientId">
+                <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text" id="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label>Logo URL</label>
+                    <input type="url" id="clientLogo" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="clientDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="clientStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAdminModal('clientModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add/Edit User Modal -->
+    <div class="admin-modal" id="userModal">
+        <div class="modal-overlay" onclick="closeAdminModal('userModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="userModalTitle">Add User</h2>
+                <button onclick="closeAdminModal('userModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="userForm" onsubmit="saveUser(event)">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="userPassword" placeholder="Leave empty to keep current">
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select id="userRole">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="userStatus">
+                        <option value="active">Active</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAdminModal('userModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Confirm Delete Modal -->
+    <div class="admin-modal" id="confirmModal">
+        <div class="modal-overlay" onclick="closeAdminModal('confirmModal')"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>Confirm Delete</h2>
+                <button onclick="closeAdminModal('confirmModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <p id="confirmMessage">Are you sure you want to delete this item?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeAdminModal('confirmModal')">Cancel</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
